@@ -1,0 +1,88 @@
+
+{% extends "base.html.twig" %}
+	
+	{% block title %}Listado de pendientes{% endblock %}
+
+    
+	
+    {% block body %}
+	<body>
+		<div class="container-fluid p-3 mb-2 bg-primary text-white">
+
+
+			<form class="mx-auto" style="width: 900px;" id="miFormulario" action="#" method="post">
+				<h1 class=" ">Gestor de tareas</h1>
+           
+                <hr style="margin-top: 1rem; margin-bottom: 1rem; border: 0; border-top: 3px solid white"> 
+				<table>
+					<tr>
+						<th style="mx-auto">Listado:</th>
+						<td style="padding: 20px; margin: 20px;">
+							<input type="text" name="Listado" placeholder="listar tarea ..."/>
+						</td>
+                        
+						<td style="padding: 20px; margin: 20px;">
+							<input type="checkbox" name="ListadosDisponibles[]" value="php"/>
+							PHP
+							<input type="checkbox" name="ListadosDisponibles[]" value="javast"/>
+							JAVASCRIPT
+							<input type="checkbox" name="ListadosDisponibles[]" value="css"/>CSS
+						</td>
+                        <td style="padding: 20px; margin: 20px;">
+							<input type="submit" value="Añadir"/>
+							<input type="button" onclick="myFunction()" value="Borrar"/>
+						</td>
+					</tr>
+
+
+					
+						
+					
+				</table>
+			</form>
+
+<div class="container-fluid p-3 mb-2 bg-primary text-white">
+{% if datosDeptf is defined %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Localidad</th>
+          </tr>
+        </thead>
+
+        <tbody>
+           <tr>
+            <td>{{ datosDeptf.id }}</td>
+            <td>{{ datosDeptf.dnombre }}</td>
+            <td>{{ datosDeptf.loc }}</td>
+
+          </tr>
+        </tbody>
+
+    </table>
+  {% endif %}
+
+
+
+</div>
+
+		</div>
+
+         <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <!-- Todos los plugins JavaScript de Bootstrap (también puedes
+         incluir archivos JavaScript individuales de los únicos
+         plugins que utilices) -->
+    <script src="js/bootstrap.min.js"></script>
+		<script>
+			function myFunction() {
+document.getElementById("miFormulario").reset();
+}
+		</script>
+	</body>
+    {% endblock %}
+
